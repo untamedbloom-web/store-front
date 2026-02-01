@@ -1,0 +1,200 @@
+---
+
+---
+
+<header class="site-header">
+    <div class="container header-content">
+        <a href="/" class="logo">Untamed Blooms Co.</a>
+
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+            <span class="hamburger"></span>
+        </button>
+    </div>
+
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    const toggle = document.querySelector(".mobile-menu-toggle");
+    const mobileNav = document.querySelector(".mobile-nav");
+    const header = document.querySelector(".site-header");
+
+    toggle?.addEventListener("click", () => {
+        mobileNav?.classList.toggle("active");
+        toggle.classList.toggle("active");
+        header.classList.toggle("nav-open");
+    });
+</script>
+
+<style>
+    .site-header {
+        height: var(--header-height);
+        background-color: var(--color-background);
+        border-bottom: 1px solid var(--color-border);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-content {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-family: var(--font-family-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Desktop Nav */
+    .desktop-nav ul {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-md);
+    }
+
+    .desktop-nav a {
+        font-size: var(--font-size-sm);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 500;
+        position: relative;
+    }
+
+    .desktop-nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--color-secondary);
+        transition: width 0.3s ease;
+    }
+
+    .desktop-nav a:hover::after {
+        width: 100%;
+    }
+
+    /* Mobile Toggle */
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        padding: var(--spacing-xs);
+    }
+
+    .hamburger {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: var(--color-primary);
+        position: relative;
+        transition: background-color 0.3s;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: var(--color-primary);
+        transition: transform 0.3s;
+    }
+
+    .hamburger::before {
+        top: -6px;
+    }
+    .hamburger::after {
+        bottom: -6px;
+    }
+
+    /* Mobile Nav (Initially Hidden) */
+    .mobile-nav {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--color-background);
+        padding: var(--spacing-md);
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: var(--shadow-md);
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    .mobile-nav a {
+        font-family: var(--font-family-heading);
+        font-size: var(--font-size-lg);
+        color: var(--color-primary);
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        .desktop-nav {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        /* Animate Hamburger to X */
+        .mobile-menu-toggle.active .hamburger {
+            background-color: transparent;
+        }
+        .mobile-menu-toggle.active .hamburger::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+        .mobile-menu-toggle.active .hamburger::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

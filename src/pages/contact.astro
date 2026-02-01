@@ -1,0 +1,274 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import contactBg from "../assets/images/contact-bg.png";
+import { siteInfo } from "../data/site";
+---
+
+<Layout title="Contact Us">
+    <Header slot="header" />
+
+    <main>
+        <section class="page-header section-padding fade-in-up">
+            <div class="container text-center">
+                <h1>Let's Create Together</h1>
+                <p class="subtitle">Tell us about your floral dreams.</p>
+            </div>
+        </section>
+
+        <section class="contact-section container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="form-wrapper fade-in-up delay-100">
+                    <form
+                        class="contact-form"
+                        name="contact"
+                        method="POST"
+                        data-netlify="true"
+                    >
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                placeholder="Your name"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="your@email.com"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type">Inquiry Type</label>
+                            <select id="type" name="type">
+                                <option value="wedding"
+                                    >Wedding Floral Design</option
+                                >
+                                <option value="event">Private Event</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                required
+                                placeholder="Tell us more about your event date, venue, and vision..."
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"
+                            >Send Inquiry</button
+                        >
+                    </form>
+                </div>
+
+                <!-- Info & Decorative Image -->
+                <div class="info-wrapper fade-in-up delay-200">
+                    <div class="info-card">
+                        <h3>Get in Touch</h3>
+                        <p>
+                            <strong>Email:</strong><br /><a
+                                href={`mailto:${siteInfo.email}`}
+                                >{siteInfo.email}</a
+                            >
+                        </p>
+                        <p>
+                            <strong>Studio:</strong><br />{
+                                siteInfo.address.street
+                            },<br />{siteInfo.address.city}, {
+                                siteInfo.address.state
+                            }
+                            {siteInfo.address.zip}<br /><em
+                                >(By Appointment Only)</em
+                            >
+                        </p>
+                        <p>
+                            <strong>Hours:</strong><br />{
+                                siteInfo.hours.weekdays
+                            }
+                        </p>
+                    </div>
+
+                    <div class="decorative-img">
+                        <Image
+                            src={contactBg}
+                            alt="Dried florals flatlay"
+                            class="bg-img"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer slot="footer" />
+</Layout>
+
+<script>
+    // Intersection Observer from global scope or re-declared
+    const observerOptions = { root: null, threshold: 0.1 };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document
+        .querySelectorAll(".fade-in-up")
+        .forEach((el) => observer.observe(el));
+</script>
+
+<style>
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+    .text-center {
+        text-align: center;
+    }
+
+    .page-header h1 {
+        font-size: var(--font-size-4xl);
+    }
+    .subtitle {
+        font-size: var(--font-size-xl);
+        color: var(--color-secondary);
+        font-family: var(--font-family-heading);
+        font-style: italic;
+    }
+
+    .contact-section {
+        padding-bottom: var(--spacing-xl);
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: var(--spacing-xl);
+    }
+
+    /* Form Styles */
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        background: var(--color-surface);
+        padding: var(--spacing-lg);
+        border-radius: 4px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    label {
+        font-weight: 500;
+        color: var(--color-primary);
+        text-transform: uppercase;
+        font-size: var(--font-size-xs);
+        letter-spacing: 0.05em;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 12px;
+        border: 1px solid var(--color-border);
+        border-radius: 2px;
+        font-family: var(--font-family-body);
+        font-size: var(--font-size-base);
+        background-color: var(--color-background);
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: none;
+        border-color: var(--color-secondary);
+    }
+
+    .btn {
+        padding: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: var(--transition);
+    }
+    .btn-primary {
+        background: var(--color-primary);
+        color: white;
+    }
+    .btn-primary:hover {
+        background: var(--color-secondary);
+    }
+
+    /* Info Styles */
+    .info-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .info-card {
+        background: var(--color-primary);
+        color: var(--color-surface);
+        padding: var(--spacing-lg);
+        border-radius: 4px;
+    }
+
+    .info-card h3 {
+        color: var(--color-accent);
+        margin-bottom: var(--spacing-md);
+    }
+    .info-card p {
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.6;
+    }
+
+    .decorative-img {
+        height: 300px;
+        overflow: hidden;
+        border-radius: 4px;
+    }
+
+    .bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 5s ease;
+    }
+
+    .decorative-img:hover .bg-img {
+        transform: scale(1.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

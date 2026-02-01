@@ -1,0 +1,201 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import { services } from "../data/services";
+---
+
+<Layout title="Services & Gallery">
+    <Header slot="header" />
+
+    <main>
+        <section class="page-header section-padding fade-in-up">
+            <div class="container text-center">
+                <h1>Our Offerings</h1>
+                <p class="subtitle">
+                    Curated floral experiences for every moment.
+                </p>
+            </div>
+        </section>
+
+        <section class="services-list container">
+            {
+                services.map((service, index) => (
+                    <div
+                        class={`service-item fade-in-up ${index % 2 !== 0 ? "reverse" : ""}`}
+                    >
+                        <div class="service-text">
+                            <h2>{service.title}</h2>
+                            <p>{service.description}</p>
+                            <ul class="service-features">
+                                {service.features.map((feature) => (
+                                    <li>{feature}</li>
+                                ))}
+                            </ul>
+                            <a
+                                href={service.ctaLink}
+                                class={`btn ${service.ctaStyle}`}
+                            >
+                                {service.ctaText}
+                            </a>
+                        </div>
+                        <div class="service-image hover-scale">
+                            <Image src={service.image} alt={service.title} />
+                        </div>
+                    </div>
+                ))
+            }
+        </section>
+    </main>
+
+    <Footer slot="footer" />
+</Layout>
+
+<script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll(".fade-in-up").forEach((el) => {
+        observer.observe(el);
+    });
+</script>
+
+<style>
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .page-header h1 {
+        font-size: var(--font-size-4xl);
+    }
+
+    .subtitle {
+        font-size: var(--font-size-xl);
+        color: var(--color-secondary);
+        font-family: var(--font-family-heading);
+        font-style: italic;
+    }
+
+    .services-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+    }
+
+    .service-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: var(--spacing-lg);
+    }
+
+    .service-item.reverse .service-text {
+        order: 2;
+    }
+    .service-item.reverse .service-image {
+        order: 1;
+    }
+
+    .service-text h2 {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .service-text p {
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-text-muted);
+    }
+
+    .service-features {
+        list-style: circle; /* Change bullet style */
+        margin-left: 1.5rem;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-main);
+    }
+
+    .service-features li {
+        margin-bottom: 0.5rem;
+    }
+
+    .service-image {
+        overflow: hidden;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
+    }
+
+    .service-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        text-align: center;
+        transition: var(--transition);
+        cursor: pointer;
+        border-radius: var(--radius-sm);
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+    }
+    .btn-primary:hover {
+        background-color: var(--color-secondary);
+    }
+
+    .btn-outline {
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+    }
+    .btn-outline:hover {
+        background-color: var(--color-primary);
+        color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .service-item {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .service-item.reverse .service-text {
+            order: 1; /* Reset order for stacking */
+        }
+
+        .service-item.reverse .service-image {
+            order: 2;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-left: 0;
+        }
+    }
+</style>
