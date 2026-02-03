@@ -478,8 +478,19 @@ import { siteInfo } from "../data/site";
 
     /* Responsive */
     @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 3.5rem;
+        }
+
         .contact-grid {
             grid-template-columns: 1fr;
+            gap: var(--spacing-lg); /* Reduced from XL */
+        }
+
+        .contact-form {
+            padding: var(
+                --spacing-md
+            ); /* Reducded from XL(8rem) or LG(4rem) to MD(2rem) */
         }
 
         /* Reorder mobile to show form first if desired, or keep info first */
