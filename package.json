@@ -9,7 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "@astrojs/netlify": "^6.6.4",
+    "astro": "^5.17.1",
+    "dotenv": "^17.2.3",
+    "form-data": "^4.0.5",
+    "mailgun.js": "^12.7.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.1",

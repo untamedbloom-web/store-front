@@ -6,5 +6,5 @@ export const aboutPage = {
         "This is floral design as an awakening — a call to embrace the messy beauty of life, honor the moments that shape us, and reconnect with what truly matters."
     ],
     quote: "Every bloom tells a story of love, loss, and renewal. Let Untamed Blooms awaken your wild spirit, reminding you that beauty thrives in the chaos, and it’s in our most vulnerable moments that we truly come alive.",
-    owner: "Rachel Nevin"
+    owner: "Rachel"
 };

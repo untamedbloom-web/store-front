@@ -1,15 +1,19 @@
 ---
-
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.svg";
 ---
 
 <header class="site-header">
     <div class="container header-content">
-        <a href="/" class="logo">Untamed Blooms Co.</a>
+        <a href="/" class="logo">
+            <Image src={logo} alt="Untamed Blooms Co." class="logo-img" />
+        </a>
 
         <nav class="desktop-nav">
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
+                <li><a href="/sourcing">Sourcing</a></li>
                 <li><a href="/services">Services</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
@@ -24,6 +28,7 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
+            <li><a href="/sourcing">Sourcing</a></li>
             <li><a href="/services">Services</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
@@ -60,12 +65,14 @@
     }
 
     .logo {
-        font-family: var(--font-family-heading);
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-primary);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-img {
+        height: 4.5rem; /* Increased size (1.5x) */
+        width: auto;
+        display: block;
     }
 
     /* Desktop Nav */

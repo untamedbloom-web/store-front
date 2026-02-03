@@ -1,0 +1,249 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import heroBg from "../assets/images/hero-bg.png";
+import sourcingHeroSharp from "../assets/images/sourcing-hero-farm-sharp.png";
+import ethicsFoamFree from "../assets/images/ethics-foam-free.png";
+import ethicsSeasonal from "../assets/images/ethics-seasonal.png";
+import ethicsCompost from "../assets/images/ethics-compost.png";
+import sourcingIntroGather from "../assets/images/sourcing-intro-gather.png";
+
+const pageTitle = "Ethical Sourcing | Untamed Blooms Co.";
+const pageDescription =
+    "Learn about our commitment to sustainable, local, and ethical flower sourcing.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <Header slot="header" />
+
+    <section class="hero-page">
+        <div class="hero-image">
+            <Image
+                src={sourcingHeroSharp}
+                alt="Sustainable Colorado flower farm"
+                class="hero-bg-img"
+            />
+        </div>
+        <div class="hero-content container fade-in-up">
+            <h1>Wildly Grown</h1>
+            <p>Rooted in reverence, harvested with grace.</p>
+        </div>
+    </section>
+
+    <section class="sourcing-intro section-padding">
+        <div class="container">
+            <div class="two-col-grid">
+                <div class="text-content">
+                    <h2>Grown Gently, Gathered Wildly</h2>
+                    <p>
+                        We believe flowers are more than just decor—they are the
+                        earth's poetry. That's why we turn to the soil beneath
+                        our feet, partnering with local Colorado farmers who
+                        tend the land with reverence.
+                    </p>
+                    <p>
+                        From the first tender shoots of spring to the golden
+                        drying fields of autumn, we source blooms that have
+                        tasted the same air and drank the same rain as you. It's
+                        a connection you can feel in every petal.
+                    </p>
+                </div>
+                <div class="image-wrapper">
+                    <Image
+                        src={sourcingIntroGather}
+                        alt="Gentle harvest of wildflowers"
+                        class="rounded-img"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="practices section-padding bg-surface">
+        <div class="container text-center">
+            <h2
+                style="font-family: 'Birthstone Bounce', cursive; font-size: 5rem;"
+            >
+                The Art of Ethics
+            </h2>
+            <div class="practices-grid">
+                <div class="practice-card hover-scale">
+                    <div class="card-img">
+                        <Image
+                            src={ethicsFoamFree}
+                            alt="Chicken wire mechanics"
+                        />
+                    </div>
+                    <h3>Unbound & Free</h3>
+                    <p>
+                        We refuse to cage our blooms in toxic floral foam.
+                        Instead, we use chicken wire and reusable vessels,
+                        allowing each stem to dance, drink, and decay
+                        naturally—returning to the earth without a trace.
+                    </p>
+                </div>
+                <div class="practice-card hover-scale">
+                    <div class="card-img">
+                        <Image
+                            src={ethicsSeasonal}
+                            alt="Seasonal dried elements"
+                        />
+                    </div>
+                    <h3>Rhythm of the Seasons</h3>
+                    <p>
+                        We don't force a rose to bloom in snow. We embrace the
+                        fleeting beauty of the present moment, designing with
+                        what nature offers right now—wild, raw, and perfectly in
+                        time.
+                    </p>
+                </div>
+                <div class="practice-card hover-scale">
+                    <div class="card-img">
+                        <Image
+                            src={ethicsCompost}
+                            alt="Composting organic matter"
+                        />
+                    </div>
+                    <h3>Circle of Life</h3>
+                    <p>
+                        From dust to dust. Every clipped stem and spent petal is
+                        composted, feeding the soil that will birth next
+                        season's mystery. It's a complete cycle of gratitude.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer slot="footer" />
+</Layout>
+
+<style>
+    /* Reuse hero styles but tweaked for subpages if needed, 
+     or rely on global classes if available. 
+     Here defining specific styles for the page. */
+
+    .hero-page {
+        position: relative;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: var(--color-primary); /* Changed to dark green */
+        text-align: center;
+    }
+
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .hero-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* filter: brightness(0.6); Removed for sharpness */
+    }
+
+    .hero-content h1 {
+        font-family: "Birthstone Bounce", cursive;
+        font-size: 5rem;
+        margin-bottom: var(--spacing-xs);
+        color: var(--color-primary);
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), -2px -2px 4px rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-content p {
+        font-family: "Allison", cursive;
+        font-size: 3.5rem;
+        /* Updated shadow for contrast against untreated image */
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);
+    }
+
+    .section-padding {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .bg-surface {
+        background-color: var(--color-surface);
+    }
+
+    .two-col-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        align-items: center;
+    }
+
+    .rounded-img {
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .text-content h2 {
+        font-family: "Birthstone Bounce", cursive;
+        font-size: 3rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .text-content p {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .practices-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-lg);
+    }
+
+    .practice-card {
+        background: white;
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        height: 100%;
+    }
+
+    .card-img {
+        height: 200px;
+        overflow: hidden;
+        border-radius: var(--radius-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .practice-card:hover .card-img img {
+        transform: scale(1.05);
+    }
+
+    .practice-card h3 {
+        color: var(--color-primary);
+        font-family: "Birthstone Bounce", cursive;
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    @media (max-width: 768px) {
+        .two-col-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+        }
+    }
+</style>

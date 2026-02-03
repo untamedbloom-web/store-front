@@ -4,7 +4,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import heroBg from "../assets/images/hero-bg.png";
-import introFlorist from "../assets/images/intro-florist.png";
+import heroBgWildflowers from "../assets/images/hero-bg-wildflowers.png";
+import introWildflowersInteractive from "../assets/images/intro-wildflowers-interactive.png";
 import { services } from "../data/services";
 import { homePage } from "../data/home";
 ---
@@ -15,8 +16,8 @@ import { homePage } from "../data/home";
 	<section class="hero">
 		<div class="hero-image">
 			<Image
-				src={heroBg}
-				alt="Wild floral arrangement in moody studio"
+				src={heroBgWildflowers}
+				alt="Vibrant, dynamic Colorado wildflowers at golden hour"
 				class="hero-bg-img"
 			/>
 		</div>
@@ -39,8 +40,8 @@ import { homePage } from "../data/home";
 		</div>
 		<div class="intro-image fade-in-up delay-200">
 			<Image
-				src={introFlorist}
-				alt="Florist arranging flowers at window"
+				src={introWildflowersInteractive}
+				alt="Immersive Colorado wildflower garden path"
 				class="rounded-img"
 			/>
 		</div>
@@ -78,23 +79,6 @@ import { homePage } from "../data/home";
 	<Footer slot="footer" />
 </Layout>
 
-<script>
-	// Intersection Observer for scroll animations
-	const observerOptions = { root: null, threshold: 0.1 };
-	const observer = new IntersectionObserver((entries, observer) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add("visible");
-				observer.unobserve(entry.target);
-			}
-		});
-	}, observerOptions);
-
-	document
-		.querySelectorAll(".fade-in-up")
-		.forEach((el) => observer.observe(el));
-</script>
-
 <style>
 	/* Hero Section */
 	.hero {
@@ -119,7 +103,7 @@ import { homePage } from "../data/home";
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		filter: brightness(0.7); /* Darken slightly for text legibility */
+		/* filter: brightness(0.7); Removed to show true colors of negative space */
 	}
 
 	.hero-content {
@@ -127,22 +111,30 @@ import { homePage } from "../data/home";
 		z-index: 1;
 		max-width: 700px;
 		padding: var(--spacing-md);
-		color: white; /* Make text white on top of image */
+		color: var(
+			--color-primary
+		); /* Changed to dark green for contrast against light negative space */
+		text-align: center;
 	}
 
 	.hero h1 {
-		font-family: "Pinyon Script", cursive;
-		font-size: 5rem; /* Increased size for script font */
-		color: white; /* Override default primary color */
+		font-family: "Birthstone Bounce", cursive;
+		font-size: 7.5rem; /* Increased to 1.5x */
+		color: var(--color-primary);
 		margin-bottom: var(--spacing-sm);
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+		/* Subtle white halo for readability */
+		text-shadow:
+			2px 2px 4px rgba(255, 255, 255, 0.8),
+			-2px -2px 4px rgba(255, 255, 255, 0.8);
 		line-height: 1.1;
 	}
 
 	.hero p {
-		font-size: var(--font-size-lg);
+		font-family: "Allison", cursive;
+		font-size: 3.5rem; /* Increased for Allison script readability */
 		margin-bottom: var(--spacing-md);
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+		line-height: 1.2;
 	}
 
 	/* Buttons */
@@ -181,7 +173,8 @@ import { homePage } from "../data/home";
 	}
 
 	.intro-text h2 {
-		font-size: var(--font-size-3xl);
+		font-family: "Birthstone Bounce", cursive;
+		font-size: 4.5rem; /* Increased to 1.5x (from 3rem) */
 		margin-bottom: var(--spacing-sm);
 	}
 
@@ -208,7 +201,8 @@ import { homePage } from "../data/home";
 	}
 
 	.section-header h2 {
-		font-size: var(--font-size-3xl);
+		font-family: "Birthstone Bounce", cursive;
+		font-size: 5rem;
 	}
 
 	.services-grid {
@@ -259,11 +253,13 @@ import { homePage } from "../data/home";
 	/* Responsive */
 	@media (max-width: 768px) {
 		.hero h1 {
-			font-size: var(--font-size-2xl);
+			font-size: 3.5rem; /* Scaled for mobile */
 		}
 
 		.intro {
 			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+			text-align: center;
 		}
 
 		.section-padding {

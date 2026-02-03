@@ -14,96 +14,104 @@ import { siteInfo } from "../data/site";
         <section class="page-header section-padding fade-in-up">
             <div class="container text-center">
                 <h1>Let's Create Together</h1>
-                <p class="subtitle">Tell us about your floral dreams.</p>
+                <p
+                    class="subtitle"
+                    style="font-family: 'Allison', cursive; font-size: 3.5rem;"
+                >
+                    Tell us about your floral dreams.
+                </p>
             </div>
         </section>
 
         <section class="contact-section container">
             <div class="contact-grid">
-                <!-- Contact Form -->
-                <div class="form-wrapper fade-in-up delay-100">
-                    <form
-                        class="contact-form"
-                        name="contact"
-                        method="POST"
-                        data-netlify="true"
-                    >
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Your name"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="your@email.com"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="type">Inquiry Type</label>
-                            <select id="type" name="type">
-                                <option value="wedding"
-                                    >Wedding Floral Design</option
-                                >
-                                <option value="event">Private Event</option>
-                                <option value="workshop">Workshop</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                                required
-                                placeholder="Tell us more about your event date, venue, and vision..."
-                            ></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary"
-                            >Send Inquiry</button
-                        >
-                    </form>
-                </div>
-
-                <!-- Info & Decorative Image -->
-                <div class="info-wrapper fade-in-up delay-200">
+                <!-- Info & Decorative Image (Moved to left for better flow) -->
+                <div class="info-wrapper fade-in-up delay-100">
                     <div class="info-card">
                         <h3>Get in Touch</h3>
-                        <p>
-                            <strong>Email:</strong><br /><a
-                                href={`mailto:${siteInfo.email}`}
-                                >{siteInfo.email}</a
-                            >
-                        </p>
-                        <p>
-                            <strong>Studio:</strong><br />{
-                                siteInfo.address.street
-                            },<br />{siteInfo.address.city}, {
-                                siteInfo.address.state
-                            }
-                            {siteInfo.address.zip}<br /><em
-                                >(By Appointment Only)</em
-                            >
-                        </p>
-                        <p>
-                            <strong>Hours:</strong><br />{
-                                siteInfo.hours.weekdays
-                            }
-                        </p>
+                        <ul class="contact-details">
+                            <li>
+                                <span class="label">Location</span>
+                                <span class="value"
+                                    >{siteInfo.address.display}</span
+                                >
+                            </li>
+                            <li>
+                                <span class="label">Email</span>
+                                <a
+                                    href={`mailto:${siteInfo.email}`}
+                                    class="value link">{siteInfo.email}</a
+                                >
+                            </li>
+                            <li>
+                                <span class="label">Phone</span>
+                                <a
+                                    href={`tel:${siteInfo.phone}`}
+                                    class="value link">{siteInfo.phone}</a
+                                >
+                            </li>
+                            <li class="social-row">
+                                <span class="label">Connect</span>
+                                <div class="social-icons">
+                                    <a
+                                        href={siteInfo.social.instagram}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="social-icon instagram"
+                                        aria-label="Instagram"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            ><rect
+                                                x="2"
+                                                y="2"
+                                                width="20"
+                                                height="20"
+                                                rx="5"
+                                                ry="5"></rect><path
+                                                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                                            ></path><line
+                                                x1="17.5"
+                                                y1="6.5"
+                                                x2="17.51"
+                                                y2="6.5"></line></svg
+                                        >
+                                        <span>@untamed_blooms</span>
+                                    </a>
+                                    <a
+                                        href={siteInfo.social.whatsapp}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="social-icon whatsapp"
+                                        aria-label="WhatsApp"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            ><path
+                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                                            ></path></svg
+                                        >
+                                        <span>Chat with us</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="decorative-img">
@@ -113,6 +121,67 @@ import { siteInfo } from "../data/site";
                             class="bg-img"
                         />
                     </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="form-wrapper fade-in-up delay-200">
+                    <form class="contact-form" name="contact" method="POST">
+                        <div class="form-header">
+                            <h2>Send a Message</h2>
+                        </div>
+
+                        <div class="form-group floating-label">
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                placeholder=" "
+                            />
+                            <label for="name">Your Name</label>
+                        </div>
+
+                        <div class="form-group floating-label">
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder=" "
+                            />
+                            <label for="email">Email Address</label>
+                        </div>
+
+                        <div class="form-group floating-label">
+                            <select id="type" name="type" required>
+                                <option value="" disabled selected hidden
+                                ></option>
+                                <option value="wedding"
+                                    >Wedding Floral Design</option
+                                >
+                                <option value="event">Private Event</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                            <label for="type">Inquiry Type</label>
+                        </div>
+
+                        <div class="form-group floating-label">
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                required
+                                placeholder=" "></textarea>
+                            <label for="message"
+                                >Tell us about your vision...</label
+                            >
+                        </div>
+
+                        <button type="submit" class="btn btn-primary block-btn"
+                            >Send Inquiry</button
+                        >
+                    </form>
                 </div>
             </div>
         </section>
@@ -136,6 +205,46 @@ import { siteInfo } from "../data/site";
     document
         .querySelectorAll(".fade-in-up")
         .forEach((el) => observer.observe(el));
+
+    // Form Handling
+    const form = document.querySelector(
+        'form[name="contact"]',
+    ) as HTMLFormElement;
+    const submitBtn = form.querySelector(
+        'button[type="submit"]',
+    ) as HTMLButtonElement;
+
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch("/api/contact", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    alert("Thank you! Your inquiry has been sent.");
+                    form.reset();
+                } else {
+                    const data = await response.json();
+                    alert(`Error: ${data.message || "Something went wrong."}`);
+                }
+            } catch (error) {
+                console.error("Submission error:", error);
+                alert("An unexpected error occurred. Please try again.");
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
 </script>
 
 <style>
@@ -147,7 +256,9 @@ import { siteInfo } from "../data/site";
     }
 
     .page-header h1 {
-        font-size: var(--font-size-4xl);
+        font-family: "Birthstone Bounce", cursive;
+        font-size: 5rem;
+        margin-bottom: var(--spacing-xs);
     }
     .subtitle {
         font-size: var(--font-size-xl);
@@ -162,96 +273,196 @@ import { siteInfo } from "../data/site";
 
     .contact-grid {
         display: grid;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 1fr 1.5fr; /* Info smaller, Form larger */
         gap: var(--spacing-xl);
+        align-items: start;
     }
 
-    /* Form Styles */
+    /* Form Styles - UX Optimized */
     .contact-form {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-md);
+        gap: 1.5rem; /* Increased spacing */
         background: var(--color-surface);
-        padding: var(--spacing-lg);
-        border-radius: 4px;
-        box-shadow: var(--shadow-sm);
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md); /* Softer shadow */
+        border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    label {
-        font-weight: 500;
+    .form-header h2 {
+        font-family: "Birthstone Bounce", cursive;
+        font-size: 2.5rem;
         color: var(--color-primary);
-        text-transform: uppercase;
-        font-size: var(--font-size-xs);
-        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
     }
 
-    input,
-    select,
-    textarea {
-        padding: 12px;
+    /* Floating Labels */
+    .form-group.floating-label {
+        position: relative;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 16px 12px;
         border: 1px solid var(--color-border);
-        border-radius: 2px;
+        border-radius: var(--radius-sm);
         font-family: var(--font-family-body);
-        font-size: var(--font-size-base);
-        background-color: var(--color-background);
+        font-size: 1rem;
+        background-color: transparent;
+        transition:
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
     }
 
-    input:focus,
-    textarea:focus,
-    select:focus {
-        outline: none;
+    .form-group label {
+        position: absolute;
+        left: 12px;
+        top: 16px;
+        color: var(--color-text-muted);
+        background-color: var(--color-surface);
+        padding: 0 4px;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        pointer-events: none;
+    }
+
+    /* Focus & Content States for Floating Labels */
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus,
+    .form-group input:not(:placeholder-shown),
+    .form-group textarea:not(:placeholder-shown),
+    .form-group select:valid {
+        /* For select with required */
         border-color: var(--color-secondary);
+        outline: none;
     }
 
-    .btn {
-        padding: 14px;
-        text-transform: uppercase;
+    .form-group input:focus ~ label,
+    .form-group select:focus ~ label,
+    .form-group textarea:focus ~ label,
+    .form-group input:not(:placeholder-shown) ~ label,
+    .form-group textarea:not(:placeholder-shown) ~ label,
+    .form-group select:valid ~ label {
+        top: -10px;
+        left: 8px;
+        font-size: 0.8rem;
+        color: var(--color-secondary);
         font-weight: 600;
-        cursor: pointer;
-        border: none;
-        transition: var(--transition);
     }
+
+    .btn.block-btn {
+        width: 100%;
+        padding: 16px;
+        margin-top: var(--spacing-sm);
+    }
+
     .btn-primary {
         background: var(--color-primary);
         color: white;
+        border: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-radius: var(--radius-sm);
+        transition: var(--transition);
+        cursor: pointer;
     }
     .btn-primary:hover {
         background: var(--color-secondary);
+        transform: translateY(-2px);
     }
 
     /* Info Styles */
     .info-wrapper {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-md);
+        gap: var(--spacing-lg);
     }
 
     .info-card {
-        background: var(--color-primary);
-        color: var(--color-surface);
+        background: var(--color-background); /* Lighter bg for info */
         padding: var(--spacing-lg);
-        border-radius: 4px;
+        border-radius: var(--radius-md);
+        border-left: 4px solid var(--color-secondary);
     }
 
     .info-card h3 {
-        color: var(--color-accent);
+        font-family: var(--font-family-heading);
+        color: var(--color-primary);
         margin-bottom: var(--spacing-md);
+        font-size: 1.5rem;
     }
-    .info-card p {
-        margin-bottom: var(--spacing-sm);
-        line-height: 1.6;
+
+    .contact-details {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .contact-details li {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-details .label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-text-muted);
+        margin-bottom: 4px;
+    }
+
+    .contact-details .value {
+        font-size: 1.1rem;
+        color: var(--color-text-main);
+        font-weight: 500;
+    }
+
+    .contact-details .link {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .contact-details .link:hover {
+        color: var(--color-secondary);
+    }
+
+    .social-icons {
+        display: flex;
+        gap: var(--spacing-md);
+        margin-top: 4px;
+        flex-wrap: wrap;
+    }
+
+    .social-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--color-primary);
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+
+    .social-icon:hover {
+        color: var(--color-secondary);
+    }
+
+    .social-icon svg {
+        stroke-width: 1.5;
     }
 
     .decorative-img {
-        height: 300px;
+        height: 400px;
         overflow: hidden;
-        border-radius: 4px;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
     }
 
     .bg-img {
@@ -269,6 +480,14 @@ import { siteInfo } from "../data/site";
     @media (max-width: 768px) {
         .contact-grid {
             grid-template-columns: 1fr;
+        }
+
+        /* Reorder mobile to show form first if desired, or keep info first */
+        .info-wrapper {
+            order: 2;
+        }
+        .form-wrapper {
+            order: 1;
         }
     }
 </style>

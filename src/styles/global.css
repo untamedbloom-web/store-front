@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Le Jour Script';
+  src: url('/fonts/LeJourScript.otf?v=1') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Color Palette - Untamed Blooms Inspired (Earthy, Elegant, Natural) */
   --color-primary: #2d4a3e;
@@ -16,9 +24,14 @@
   --color-border: #e0e0e0;
 
   /* Typography */
-  --font-family-heading: 'Playfair Display', serif;
+
+
+  --font-family-heading: 'Playfair Display',
+    serif;
   /* Elegant serif for headings */
-  --font-family-body: 'Inter', system-ui, sans-serif;
+  --font-family-body: 'Inter',
+    system-ui,
+    sans-serif;
   /* Clean sans for readability */
 
   --font-size-xs: 0.75rem;

@@ -15,7 +15,12 @@ import { aboutPage } from "../data/about";
         <section class="page-header section-padding fade-in-up">
             <div class="container">
                 <h1>Our Story</h1>
-                <p class="subtitle">Cultivating beauty, one stem at a time.</p>
+                <p
+                    class="subtitle"
+                    style="font-family: 'Allison', cursive; font-size: 3.5rem;"
+                >
+                    Cultivating beauty, one stem at a time.
+                </p>
             </div>
         </section>
 
@@ -102,7 +107,8 @@ import { aboutPage } from "../data/about";
     }
 
     .page-header h1 {
-        font-size: var(--font-size-4xl);
+        font-family: "Birthstone Bounce", cursive;
+        font-size: 5rem; /* Large script font */
         margin-bottom: var(--spacing-xs);
     }
 
@@ -123,6 +129,12 @@ import { aboutPage } from "../data/about";
         box-shadow: var(--shadow-sm);
         align-items: center;
         border-radius: var(--radius-lg);
+    }
+
+    .text-block h2 {
+        font-family: "Birthstone Bounce", cursive;
+        font-size: 3rem;
+        margin-bottom: var(--spacing-sm);
     }
 
     .story-img {
@@ -147,9 +159,12 @@ import { aboutPage } from "../data/about";
 
     .owner-quote cite {
         display: block;
-        font-size: var(--font-size-sm);
-        color: var(--color-secondary);
-        font-weight: 600;
+        font-family: "Birthstone Bounce", cursive;
+        font-size: 3rem; /* 2x larger */
+        color: var(--color-secondary); /* Matches theme (terra cotta) */
+        font-weight: normal;
+        margin-top: var(--spacing-sm);
+        text-align: right;
     }
 
     .team-section {

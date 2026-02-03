@@ -1,5 +1,7 @@
 ---
 import { siteInfo } from "../data/site";
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.svg";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -25,8 +27,18 @@ const currentYear = new Date().getFullYear();
         <div class="container footer-grid">
             <!-- Column 1: Brand -->
             <div class="footer-brand">
-                <h3>{siteInfo.name}</h3>
-                <p>{siteInfo.description}</p>
+                <a href="/" class="footer-logo">
+                    <Image
+                        src={logo}
+                        alt={siteInfo.name}
+                        class="footer-logo-img"
+                    />
+                </a>
+                <p
+                    style="font-family: 'Birthstone Bounce', cursive; font-size: 1.5rem;"
+                >
+                    {siteInfo.description}
+                </p>
             </div>
 
             <!-- Column 2: Links -->
@@ -34,6 +46,7 @@ const currentYear = new Date().getFullYear();
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="/about">Our Story</a></li>
+                    <li><a href="/sourcing">Sourcing</a></li>
                     <li><a href="/services">Services</a></li>
                     <li><a href="/contact">Inquiries</a></li>
                     <li><a href="/privacy">Privacy Policy</a></li>
@@ -146,17 +159,20 @@ const currentYear = new Date().getFullYear();
 
     .footer-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: var(--spacing-lg);
+        grid-template-columns: 1.5fr 1fr 1fr; /* Wider column for brand/logo */
+        gap: var(--spacing-xl);
         text-align: left; /* Default alignment */
     }
 
-    .footer-brand h3 {
-        color: var(--color-accent);
+    .footer-logo {
+        display: inline-block;
         margin-bottom: var(--spacing-sm);
-        font-family:
-            "Pinyon Script", cursive; /* Use script for footer brand too */
-        font-size: 2rem;
+    }
+
+    .footer-logo-img {
+        height: 6rem; /* Increased size (1.5x from 4rem) */
+        width: auto;
+        filter: brightness(0) invert(1); /* Make it white since footer is dark */
     }
 
     .footer-links h4,
