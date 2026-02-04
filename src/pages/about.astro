@@ -17,9 +17,9 @@ import { aboutPage } from "../data/about";
                 <h1>Our Story</h1>
                 <p
                     class="subtitle"
-                    style="font-family: 'Allison', cursive; font-size: 3.5rem;"
+                    style="font-family: 'Cormorant Garamond', serif; font-size: 2rem;"
                 >
-                    Cultivating beauty, one stem at a time.
+                    Cultivating beauty,<br />one stem at a time.
                 </p>
             </div>
         </section>
@@ -34,7 +34,10 @@ import { aboutPage } from "../data/about";
                         <blockquote>
                             "{aboutPage.quote}"
                         </blockquote>
-                        <cite>— {aboutPage.owner}</cite>
+                        <cite>
+                            — {aboutPage.owner}
+                            <span class="owner-label">(Founder)</span>
+                        </cite>
                     </div>
                 </div>
                 <div class="image-block hover-scale">
@@ -107,16 +110,18 @@ import { aboutPage } from "../data/about";
     }
 
     .page-header h1 {
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 5rem; /* Large script font */
+        font-family: var(--font-family-script);
+        font-size: var(--font-size-6xl);
         margin-bottom: var(--spacing-xs);
+        line-height: 2.3;
     }
 
     .subtitle {
-        font-size: var(--font-size-xl);
+        font-size: 1.5rem;
         color: var(--color-secondary);
         font-family: var(--font-family-heading);
-        font-style: italic;
+        font-style: normal;
+        line-height: 1.2;
     }
 
     .content-grid {
@@ -132,8 +137,8 @@ import { aboutPage } from "../data/about";
     }
 
     .text-block h2 {
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 3rem;
+        font-family: var(--font-family-script);
+        font-size: 2rem;
         margin-bottom: var(--spacing-sm);
     }
 
@@ -151,7 +156,7 @@ import { aboutPage } from "../data/about";
 
     .owner-quote blockquote {
         font-family: var(--font-family-heading);
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-xl);
         font-style: italic;
         color: var(--color-primary);
         margin-bottom: var(--spacing-xs);
@@ -159,12 +164,22 @@ import { aboutPage } from "../data/about";
 
     .owner-quote cite {
         display: block;
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 3rem; /* 2x larger */
+        font-family: var(--font-family-script);
+        font-size: 2.25rem; /* 2x larger */
         color: var(--color-secondary); /* Matches theme (terra cotta) */
         font-weight: normal;
         margin-top: var(--spacing-sm);
-        text-align: right;
+        text-align: center;
+        line-height: 1.1; /* Tighter line height for script */
+    }
+
+    .owner-label {
+        display: block; /* Forces new line */
+        font-size: 1rem;
+        font-family: var(--font-family-body);
+        color: var(--color-text-muted);
+        margin-top: 0.25rem; /* Adjust spacing here */
+        font-style: normal;
     }
 
     .team-section {

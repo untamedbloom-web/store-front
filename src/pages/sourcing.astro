@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import heroBg from "../assets/images/hero-bg.png";
-import sourcingHeroSharp from "../assets/images/sourcing-hero-farm-sharp.png";
+import sourcingHeroThemeV2 from "../assets/images/sourcing-hero-theme-v2.png";
 import ethicsFoamFree from "../assets/images/ethics-foam-free.png";
 import ethicsSeasonal from "../assets/images/ethics-seasonal.png";
 import ethicsCompost from "../assets/images/ethics-compost.png";
@@ -21,7 +21,7 @@ const pageDescription =
     <section class="hero-page">
         <div class="hero-image">
             <Image
-                src={sourcingHeroSharp}
+                src={sourcingHeroThemeV2}
                 alt="Sustainable Colorado flower farm"
                 class="hero-bg-img"
             />
@@ -63,11 +63,7 @@ const pageDescription =
 
     <section class="practices section-padding bg-surface">
         <div class="container text-center">
-            <h2
-                style="font-family: 'Birthstone Bounce', cursive; font-size: 5rem;"
-            >
-                The Art of Ethics
-            </h2>
+            <h2>The Art of Ethics</h2>
             <div class="practices-grid">
                 <div class="practice-card hover-scale">
                     <div class="card-img">
@@ -152,18 +148,24 @@ const pageDescription =
     }
 
     .hero-content h1 {
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 5rem;
+        font-family: var(--font-family-script);
+        font-size: var(--font-size-6xl);
         margin-bottom: var(--spacing-xs);
         color: var(--color-primary);
-        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), -2px -2px 4px rgba(255, 255, 255, 0.8);
+        text-shadow:
+            2px 2px 4px rgba(255, 255, 255, 0.8),
+            -2px -2px 4px rgba(255, 255, 255, 0.8);
+        line-height: 2.3;
     }
 
     .hero-content p {
-        font-family: "Allison", cursive;
-        font-size: 3.5rem;
+        font-family: var(--font-family-heading);
+        font-size: 1.5rem;
+        line-height: 1.2;
         /* Updated shadow for contrast against untreated image */
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);
+        text-shadow:
+            1px 1px 2px rgba(255, 255, 255, 0.9),
+            -1px -1px 2px rgba(255, 255, 255, 0.9);
     }
 
     .section-padding {
@@ -187,13 +189,20 @@ const pageDescription =
     }
 
     .text-content h2 {
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 3rem;
+        font-family: var(--font-family-heading);
+        font-size: 1.8rem;
         margin-bottom: var(--spacing-sm);
+        line-height: 2;
     }
 
     .text-content p {
         margin-bottom: var(--spacing-sm);
+    }
+
+    .practices h2 {
+        font-family: var(--font-family-script);
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-lg);
     }
 
     .practices-grid {
@@ -232,9 +241,10 @@ const pageDescription =
 
     .practice-card h3 {
         color: var(--color-primary);
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 2.5rem;
+        font-family: var(--font-family-script);
+        font-size: 1.75rem;
         margin-bottom: var(--spacing-xs);
+        line-height: 2.3;
     }
 
     @media (max-width: 768px) {
@@ -243,7 +253,7 @@ const pageDescription =
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
         }
     }
 </style>

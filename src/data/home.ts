@@ -1,7 +1,7 @@
 export const homePage = {
     hero: {
         title: "Fiercely Free<br>Floral Design",
-        subtitle: "Bespoke arrangements inspired by nature's untamed elegance. <br>Based in Denver, CO.",
+        subtitle: "Bespoke arrangements<br>inspired by<br>nature's untamed elegance.<br>Based in Denver, CO.",
         ctaText: "Inquire Now",
         ctaLink: "/contact"
     },

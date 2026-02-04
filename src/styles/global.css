@@ -26,13 +26,15 @@
   /* Typography */
 
 
-  --font-family-heading: 'Playfair Display',
+  --font-family-heading: 'Cormorant Garamond',
     serif;
   /* Elegant serif for headings */
   --font-family-body: 'Inter',
     system-ui,
     sans-serif;
   /* Clean sans for readability */
+  --font-family-subtitle: 'Montserrat', sans-serif;
+  --font-family-script: 'Le Jour Script', cursive;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -41,7 +43,19 @@
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 2rem;
-  --font-size-4xl: 3rem;
+  --font-size-4xl: 2rem;
+  --font-size-5xl: 2.5rem;
+  --font-size-6xl: 3.5rem;
+  --font-size-7xl: 3.75rem;
+
+  /* Semantic Typography */
+  --text-h1: var(--font-size-4xl);
+  --text-h2: var(--font-size-3xl);
+  --text-h3: var(--font-size-2xl);
+  --text-h4: var(--font-size-xl);
+  --text-body: var(--font-size-base);
+  --text-small: var(--font-size-sm);
+  --text-script: 1rem;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -81,6 +95,7 @@ html {
   color: var(--color-text-main);
   scroll-behavior: smooth;
   line-height: 1.6;
+  font-size: var(--text-body);
 }
 
 h1,
@@ -93,6 +108,33 @@ h6 {
   line-height: 1.2;
   margin-bottom: var(--spacing-sm);
   color: var(--color-primary);
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+h4 {
+  font-size: var(--text-h4);
+}
+
+h5 {
+  font-size: var(--text-body);
+  font-weight: bold;
+}
+
+h6 {
+  font-size: var(--text-small);
+  font-weight: bold;
+  letter-spacing: 0.05em;
 }
 
 img {

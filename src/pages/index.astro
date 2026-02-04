@@ -118,23 +118,26 @@ import { homePage } from "../data/home";
 	}
 
 	.hero h1 {
-		font-family: "Birthstone Bounce", cursive;
-		font-size: 7.5rem; /* Increased to 1.5x */
+		font-family: var(--font-family-script);
+		font-size: var(--font-size-6xl); /* Increased to 1.5x */
 		color: var(--color-primary);
 		margin-bottom: var(--spacing-sm);
 		/* Subtle white halo for readability */
 		text-shadow:
 			2px 2px 4px rgba(255, 255, 255, 0.8),
 			-2px -2px 4px rgba(255, 255, 255, 0.8);
-		line-height: 1.1;
+		line-height: 2.3;
 	}
 
 	.hero p {
-		font-family: "Allison", cursive;
-		font-size: 3.5rem; /* Increased for Allison script readability */
+		font-family: var(--font-family-heading);
+		/* text-transform: uppercase; */
+		letter-spacing: 0.2em;
+		font-weight: 500;
+		font-size: 1.5rem;
 		margin-bottom: var(--spacing-md);
-		text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 		line-height: 1.2;
+		color: var(--color-primary);
 	}
 
 	/* Buttons */
@@ -173,8 +176,8 @@ import { homePage } from "../data/home";
 	}
 
 	.intro-text h2 {
-		font-family: "Birthstone Bounce", cursive;
-		font-size: 4.5rem; /* Increased to 1.5x (from 3rem) */
+		font-family: var(--font-family-script);
+		font-size: var(--font-size-5xl); /* Increased to 1.5x (from 3rem) */
 		margin-bottom: var(--spacing-sm);
 	}
 
@@ -201,8 +204,8 @@ import { homePage } from "../data/home";
 	}
 
 	.section-header h2 {
-		font-family: "Birthstone Bounce", cursive;
-		font-size: 5rem;
+		font-family: var(--font-family-script);
+		font-size: var(--font-size-3xl);
 	}
 
 	.services-grid {
@@ -253,7 +256,7 @@ import { homePage } from "../data/home";
 	/* Responsive */
 	@media (max-width: 768px) {
 		.hero h1 {
-			font-size: 3.5rem; /* Scaled for mobile */
+			font-size: 2.5rem; /* Scaled for mobile */
 		}
 
 		.intro {

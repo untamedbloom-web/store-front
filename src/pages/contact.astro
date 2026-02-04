@@ -14,12 +14,7 @@ import { siteInfo } from "../data/site";
         <section class="page-header section-padding fade-in-up">
             <div class="container text-center">
                 <h1>Let's Create Together</h1>
-                <p
-                    class="subtitle"
-                    style="font-family: 'Allison', cursive; font-size: 3.5rem;"
-                >
-                    Tell us about your floral dreams.
-                </p>
+                <p class="subtitle">Tell us about your floral dreams.</p>
             </div>
         </section>
 
@@ -256,15 +251,17 @@ import { siteInfo } from "../data/site";
     }
 
     .page-header h1 {
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 5rem;
+        font-family: var(--font-family-script);
+        font-size: var(--font-size-6xl);
         margin-bottom: var(--spacing-xs);
+        line-height: 2.3;
     }
     .subtitle {
-        font-size: var(--font-size-xl);
+        font-size: 1.5rem;
         color: var(--color-secondary);
         font-family: var(--font-family-heading);
-        font-style: italic;
+        font-style: normal;
+        line-height: 1.2;
     }
 
     .contact-section {
@@ -284,15 +281,18 @@ import { siteInfo } from "../data/site";
         flex-direction: column;
         gap: 1.5rem; /* Increased spacing */
         background: var(--color-surface);
-        padding: var(--spacing-xl);
+        padding: var(
+            --spacing-lg
+        ); /* Reduced from XL (8rem) to LG (4rem) for better fit */
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-md); /* Softer shadow */
         border: 1px solid rgba(0, 0, 0, 0.03);
+        width: 100%; /* Ensure it fills container */
     }
 
     .form-header h2 {
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 2.5rem;
+        font-family: var(--font-family-heading);
+        font-size: 2rem;
         color: var(--color-primary);
         margin-bottom: 0.5rem;
     }
@@ -488,9 +488,7 @@ import { siteInfo } from "../data/site";
         }
 
         .contact-form {
-            padding: var(
-                --spacing-md
-            ); /* Reducded from XL(8rem) or LG(4rem) to MD(2rem) */
+            padding: 1.5rem; /* Minimized padding for mobile */
         }
 
         /* Reorder mobile to show form first if desired, or keep info first */

@@ -84,15 +84,16 @@ import { services } from "../data/services";
     }
 
     .page-header h1 {
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 5rem;
+        font-family: var(--font-family-script);
+        font-size: var(--font-size-6xl);
     }
 
     .subtitle {
-        font-size: var(--font-size-xl);
+        font-size: 1.5rem;
         color: var(--color-secondary);
         font-family: var(--font-family-heading);
-        font-style: italic;
+        font-style: normal; /* Matching index */
+        line-height: 1.2;
     }
 
     .services-list {
@@ -117,8 +118,8 @@ import { services } from "../data/services";
     }
 
     .service-text h2 {
-        font-family: "Birthstone Bounce", cursive;
-        font-size: 3rem;
+        font-family: var(--font-family-script);
+        font-size: var(--font-size-3xl);
         margin-bottom: var(--spacing-sm);
     }
 
