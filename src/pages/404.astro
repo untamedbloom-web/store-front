@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import introWildflowers from "../assets/images/intro-wildflowers-interactive.png"; // Lush garden feel
+
+const pageTitle = "Page Not Found | Untamed Blooms Co.";
+---
+
+<Layout title={pageTitle}>
+    <Header slot="header" />
+
+    <main class="not-found-page">
+        <div class="content container fade-in-up">
+            <h1 class="error-code">404</h1>
+            <h2>Lost in the Wildflowers?</h2>
+            <p class="subtitle">
+                It seems you've wandered off the path. The page you are looking
+                for has drifted away.
+            </p>
+            <div class="actions">
+                <a href="/" class="btn btn-primary">Guide Me Home</a>
+            </div>
+        </div>
+        <div class="bg-image">
+            <Image
+                src={introWildflowers}
+                alt="Wildflower garden"
+                class="bg-img"
+            />
+            <div class="overlay"></div>
+        </div>
+    </main>
+
+    <Footer slot="footer" />
+</Layout>
+
+<style>
+    .not-found-page {
+        position: relative;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        text-align: center;
+        color: white;
+    }
+
+    .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(45, 74, 62, 0.6); /* Primary green overlay */
+        backdrop-filter: blur(3px);
+    }
+
+    .content {
+        position: relative;
+        z-index: 10;
+        padding: 0 var(--spacing-md);
+        max-width: 600px;
+    }
+
+    .error-code {
+        font-family: var(--font-family-script);
+        font-size: 8rem; /* Very large for impact */
+        margin-bottom: 0;
+        line-height: 1;
+        opacity: 0.9;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        color: var(--color-accent); /* Make it stand out */
+    }
+
+    h2 {
+        font-family: var(--font-family-heading);
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-accent);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-lg);
+        opacity: 0.9;
+        font-weight: 300;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 16px 32px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        transition: var(--transition);
+        border: 1px solid white;
+    }
+
+    .btn-primary {
+        background-color: transparent;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: white;
+        color: var(--color-primary);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .error-code {
+            font-size: 5rem;
+        }
+        h2 {
+            font-size: 1.75rem;
+        }
+    }
+</style>

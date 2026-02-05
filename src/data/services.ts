@@ -15,7 +15,7 @@ export const services = [
             "On-site Setup & Breakdown"
         ],
         image: weddingImg,
-        ctaText: "Inquire for Wedding",
+        ctaText: "Start Your Design",
         ctaLink: "/contact",
         ctaStyle: "btn-primary"
     },
@@ -32,7 +32,7 @@ export const services = [
         ],
         image: alacarteImg,
         ctaText: "View Menu",
-        ctaLink: "/contact?type=event",
+        ctaLink: "/under-construction",
         ctaStyle: "btn-outline"
     },
     {
@@ -47,7 +47,7 @@ export const services = [
         ],
         image: workshopImg,
         ctaText: "See Schedule",
-        ctaLink: "/contact?type=workshop",
+        ctaLink: "/under-construction",
         ctaStyle: "btn-outline"
     }
 ];

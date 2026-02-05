@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import contactBg from "../assets/images/contact-bg.png"; // Reusing for texture
+
+const pageTitle = "Coming Soon | Untamed Blooms Co.";
+---
+
+<Layout title={pageTitle}>
+    <Header slot="header" />
+
+    <main class="construction-page">
+        <div class="content container fade-in-up">
+            <h1>Blossoming Soon</h1>
+            <p class="subtitle">
+                We are currently cultivating this space. Check back soon for
+                beautiful things.
+            </p>
+            <div class="divider">
+                <span class="flower-icon">❀</span>
+            </div>
+            <a href="/" class="btn btn-primary">Return Home</a>
+        </div>
+        <div class="bg-texture">
+            <Image
+                src={contactBg}
+                alt="Dried flowers texture"
+                class="texture-img"
+            />
+        </div>
+    </main>
+
+    <Footer slot="footer" />
+</Layout>
+
+<style>
+    .construction-page {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        padding: var(--spacing-lg);
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
+        background: rgba(
+            253,
+            252,
+            248,
+            0.9
+        ); /* var(--color-background) with opacity */
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        max-width: 600px;
+        backdrop-filter: blur(5px);
+    }
+
+    h1 {
+        font-family: var(--font-family-script);
+        font-size: var(--font-size-6xl);
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-sm);
+        line-height: 2.3;
+    }
+
+    .subtitle {
+        font-family: var(--font-family-heading);
+        font-size: 1.5rem;
+        color: var(--color-text-muted);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-accent);
+        font-size: 1.5rem;
+    }
+
+    .divider::before,
+    .divider::after {
+        content: "";
+        height: 1px;
+        width: 50px;
+        background-color: var(--color-border);
+        margin: 0 var(--spacing-sm);
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-secondary);
+        transform: translateY(-2px);
+    }
+
+    .bg-texture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.15;
+    }
+
+    .texture-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+        .construction-page {
+            padding: var(--spacing-md);
+        }
+
+        .content {
+            padding: var(--spacing-lg);
+        }
+
+        h1 {
+            font-size: 2rem; /* Scaled down further per request */
+            line-height: 1.5;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+        }
+    }
+</style>
