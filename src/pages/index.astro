@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
-import heroBg from "../assets/images/hero-bg.png";
-import heroBgWildflowers from "../assets/images/hero-bg-wildflowers.png";
-import introWildflowersInteractive from "../assets/images/intro-wildflowers-interactive.png";
+import heroBgMoody from "../assets/images/hero_wildflowers_moody.png";
+import introFloristHands from "../assets/images/about_florist_hands_earthy.png";
+import logo from "../assets/images/logo.svg";
 import { services } from "../data/services";
 import { homePage } from "../data/home";
 ---
@@ -13,17 +13,18 @@ import { homePage } from "../data/home";
 <Layout title="Home">
 	<Header slot="header" />
 
-	<section class="hero">
+	<section class="hero inverse-nav">
 		<div class="hero-image">
 			<Image
-				src={heroBgWildflowers}
-				alt="Vibrant, dynamic Colorado wildflowers at golden hour"
+				src={heroBgMoody}
+				alt="Untamed English cottage garden at golden hour"
 				class="hero-bg-img"
 			/>
+			<div class="hero-overlay"></div>
 		</div>
 		<div class="hero-content container fade-in-up">
-			<h1 set:html={homePage.hero.title} />
-			<p set:html={homePage.hero.subtitle} />
+			<Image src={logo} alt="Untamed Blooms Co." class="hero-logo" />
+			<p class="subtitle">Fiercely Free Floral Design</p>
 			<a href={homePage.hero.ctaLink} class="btn btn-primary"
 				>{homePage.hero.ctaText}</a
 			>
@@ -31,19 +32,21 @@ import { homePage } from "../data/home";
 	</section>
 
 	<section class="intro container section-padding">
-		<div class="intro-text fade-in-up delay-100">
-			<h2>{homePage.intro.title}</h2>
-			<p>{homePage.intro.description}</p>
-			<a href={homePage.intro.linkUrl} class="text-link"
-				>{homePage.intro.linkText}</a
-			>
-		</div>
-		<div class="intro-image fade-in-up delay-200">
-			<Image
-				src={introWildflowersInteractive}
-				alt="Immersive Colorado wildflower garden path"
-				class="rounded-img"
-			/>
+		<div class="intro-grid">
+			<div class="intro-image fade-in-up">
+				<Image
+					src={introFloristHands}
+					alt="Florist arranging wild flowers"
+					class="organic-img"
+				/>
+			</div>
+			<div class="intro-text fade-in-up delay-100">
+				<h2>{homePage.intro.title}</h2>
+				<p>{homePage.intro.description}</p>
+				<a href={homePage.intro.linkUrl} class="text-link"
+					>{homePage.intro.linkText}</a
+				>
+			</div>
 		</div>
 	</section>
 
@@ -81,11 +84,13 @@ import { homePage } from "../data/home";
 
 <style>
 	/* Hero Section */
+	/* Hero Section */
 	.hero {
 		position: relative;
-		height: 85vh; /* Slightly taller */
+		height: 90vh;
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		background-color: var(--color-surface);
 		overflow: hidden;
 	}
@@ -103,41 +108,94 @@ import { homePage } from "../data/home";
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		/* filter: brightness(0.7); Removed to show true colors of negative space */
+	}
+
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0.3),
+			rgba(0, 0, 0, 0.1)
+		);
 	}
 
 	.hero-content {
 		position: relative;
 		z-index: 1;
-		max-width: 700px;
+		max-width: 900px;
 		padding: var(--spacing-md);
-		color: var(
-			--color-primary
-		); /* Changed to dark green for contrast against light negative space */
+		color: white; /* Ensure visibility over image */
 		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
-	.hero h1 {
-		font-family: var(--font-family-script);
-		font-size: var(--font-size-6xl); /* Increased to 1.5x */
-		color: var(--color-primary);
-		margin-bottom: var(--spacing-sm);
-		/* Subtle white halo for readability */
-		text-shadow:
-			2px 2px 4px rgba(255, 255, 255, 0.8),
-			-2px -2px 4px rgba(255, 255, 255, 0.8);
-		line-height: 2.3;
+	.hero-logo {
+		width: 100%;
+		max-width: 600px; /* Approximate width of previous 5rem text */
+		height: auto;
+		margin-bottom: 0; /* Removed margin to bring subtitle closer */
+		filter: brightness(0) invert(1);
 	}
 
-	.hero p {
+	.hero .subtitle {
 		font-family: var(--font-family-heading);
-		/* text-transform: uppercase; */
+		text-transform: uppercase;
 		letter-spacing: 0.2em;
 		font-weight: 500;
-		font-size: 1.5rem;
-		margin-bottom: var(--spacing-md);
-		line-height: 1.2;
+		font-size: 1.2rem;
+		margin-top: var(--spacing-xs);
+		margin-bottom: var(--spacing-lg);
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	/* Buttons - Ensure visibility on dark bg */
+	.btn-primary {
+		background-color: var(--color-brand-red); /* Pop of color */
+		color: white;
+		border: 1px solid transparent;
+	}
+
+	.btn-primary:hover {
+		background-color: transparent;
+		border-color: white;
+	}
+
+	/* Intro Section */
+	.section-padding {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.intro-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-xl);
+		align-items: center;
+	}
+
+	.intro-text {
+		padding: var(--spacing-md);
+	}
+
+	.intro-text h2 {
+		font-family: var(--font-family-script); /* Changed to Le Jour Script */
+		font-size: 4rem; /* Increased size for script font */
+		margin-bottom: var(--spacing-sm);
 		color: var(--color-primary);
+		line-height: 1.8;
+	}
+
+	.organic-img {
+		border-radius: var(--radius-lg) 0 var(--radius-lg) 0;
+		box-shadow: var(--shadow-lg);
+		width: 100%;
+		height: auto;
+		object-fit: cover;
 	}
 
 	/* Buttons */
@@ -164,33 +222,17 @@ import { homePage } from "../data/home";
 	}
 
 	/* Intro Section */
-	.section-padding {
-		padding: var(--spacing-xl) 0;
-	}
-
 	.intro {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--spacing-lg);
-		align-items: center;
-	}
-
-	.intro-text h2 {
-		font-family: var(--font-family-script);
-		font-size: var(--font-size-5xl); /* Increased to 1.5x (from 3rem) */
-		margin-bottom: var(--spacing-sm);
-	}
-
-	.rounded-img {
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-lg);
+		display: block; /* Force block to override any grid */
+		/* Handled by .intro-grid */
 	}
 
 	.text-link {
 		display: inline-block;
 		margin-top: var(--spacing-sm);
 		font-weight: 600;
-		border-bottom: 1px solid var(--color-primary);
+		color: var(--color-secondary);
+		border-bottom: 2px solid var(--color-secondary);
 	}
 
 	/* Services Section */
@@ -259,7 +301,7 @@ import { homePage } from "../data/home";
 			font-size: 2.5rem; /* Scaled for mobile */
 		}
 
-		.intro {
+		.intro-grid {
 			grid-template-columns: 1fr;
 			gap: var(--spacing-md);
 			text-align: center;

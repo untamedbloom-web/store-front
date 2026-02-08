@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import heroBg from "../assets/images/hero-bg.png";
-import sourcingHeroThemeV2 from "../assets/images/sourcing-hero-theme-v2.png";
+import sourcingHeroFarm from "../assets/images/sourcing_flower_farm_colorado.png";
 import ethicsFoamFree from "../assets/images/ethics-foam-free.png";
 import ethicsSeasonal from "../assets/images/ethics-seasonal.png";
 import ethicsCompost from "../assets/images/ethics-compost.png";
@@ -21,10 +21,11 @@ const pageDescription =
     <section class="hero-page">
         <div class="hero-image">
             <Image
-                src={sourcingHeroThemeV2}
-                alt="Sustainable Colorado flower farm"
+                src={sourcingHeroFarm}
+                alt="Sustainable Colorado flower farm with mountain backdrop"
                 class="hero-bg-img"
             />
+            <div class="hero-overlay"></div>
         </div>
         <div class="hero-content container fade-in-up">
             <h1>Wildly Grown</h1>
@@ -144,28 +145,36 @@ const pageDescription =
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* filter: brightness(0.6); Removed for sharpness */
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.1)
+        );
     }
 
     .hero-content h1 {
         font-family: var(--font-family-script);
-        font-size: var(--font-size-6xl);
+        font-size: 5rem;
         margin-bottom: var(--spacing-xs);
-        color: var(--color-primary);
-        text-shadow:
-            2px 2px 4px rgba(255, 255, 255, 0.8),
-            -2px -2px 4px rgba(255, 255, 255, 0.8);
-        line-height: 2.3;
+        color: white; /* Ensure pop against image */
+        line-height: 1.2;
+        /* No shadow */
     }
 
     .hero-content p {
         font-family: var(--font-family-heading);
         font-size: 1.5rem;
         line-height: 1.2;
-        /* Updated shadow for contrast against untreated image */
-        text-shadow:
-            1px 1px 2px rgba(255, 255, 255, 0.9),
-            -1px -1px 2px rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.95);
+        /* No shadow */
     }
 
     .section-padding {

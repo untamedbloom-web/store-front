@@ -34,32 +34,9 @@ const currentYear = new Date().getFullYear();
                         class="footer-logo-img"
                     />
                 </a>
-                <p
-                    style="font-family: var(--font-family-script); font-size: var(--text-script);"
-                >
+                <p class="brand-description">
                     {siteInfo.description}
                 </p>
-            </div>
-
-            <!-- Column 2: Links -->
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="/about">Our Story</a></li>
-                    <li><a href="/sourcing">Sourcing</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/contact">Inquiries</a></li>
-                    <li><a href="/privacy">Privacy Policy</a></li>
-                    <li><a href="/terms">Terms of Service</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Contact -->
-            <div class="footer-contact">
-                <h4>Visit Us</h4>
-                <p>{siteInfo.address.display}</p>
-                <p><a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a></p>
-                <p><a href={`tel:${siteInfo.phone}`}>{siteInfo.phone}</a></p>
                 <div class="social-links">
                     <a
                         href={siteInfo.social.instagram}
@@ -114,6 +91,39 @@ const currentYear = new Date().getFullYear();
                     </a>
                 </div>
             </div>
+
+            <!-- Column 2: Explore -->
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/about">Our Story</a></li>
+                    <li><a href="/gallery">Portfolio</a></li>
+                    <li><a href="/sourcing">Sourcing</a></li>
+                    <li><a href="/services">Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Support -->
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Connect (Replaces Visit Us) -->
+            <div class="footer-contact">
+                <h4>Get in Touch</h4>
+                <p>We'd love to hear from you.</p>
+                <p class="contact-item">
+                    <a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
+                </p>
+                <p class="contact-item">
+                    <a href={`tel:${siteInfo.phone}`}>{siteInfo.phone}</a>
+                </p>
+            </div>
         </div>
     </div>
 
@@ -142,19 +152,12 @@ const currentYear = new Date().getFullYear();
     .site-footer {
         background-color: var(--color-primary);
         color: var(--color-background);
-        padding-top: var(--spacing-lg);
-        margin-top: auto; /* Pushes footer to bottom if content is short */
-    }
-
-    .site-footer {
-        background-color: var(--color-primary);
-        color: var(--color-background);
         margin-top: auto;
     }
 
     /* Newsletter Section */
     .newsletter-section {
-        background-color: rgba(255, 255, 255, 0.05); /* Slight separation */
+        background-color: rgba(255, 255, 255, 0.03);
         padding: var(--spacing-lg) 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -170,7 +173,7 @@ const currentYear = new Date().getFullYear();
         display: flex;
         gap: var(--spacing-xs);
         margin-top: var(--spacing-md);
-        max-width: 500px;
+        max-width: 400px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -203,16 +206,22 @@ const currentYear = new Date().getFullYear();
         background-color: white;
     }
 
-    /* Main Footer (Columns) */
+    /* Main Footer */
     .footer-main {
-        padding: var(--spacing-lg) 0;
+        padding: var(--spacing-xl) 0;
     }
 
     .footer-grid {
         display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr; /* Wider column for brand/logo */
+        grid-template-columns: 1.5fr 0.8fr 0.8fr 1.2fr; /* Optimized columns */
         gap: var(--spacing-xl);
-        text-align: left; /* Default alignment */
+        text-align: left;
+    }
+
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .footer-logo {
@@ -221,17 +230,27 @@ const currentYear = new Date().getFullYear();
     }
 
     .footer-logo-img {
-        height: 6rem; /* Increased size (1.5x from 4rem) */
+        height: 5rem;
         width: auto;
-        filter: brightness(0) invert(1); /* Make it white since footer is dark */
+        filter: brightness(0) invert(1);
+    }
+
+    .brand-description {
+        font-family: var(--font-family-script);
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: var(--spacing-md);
+        max-width: 250px;
     }
 
     .footer-links h4,
     .footer-contact h4 {
         color: var(--color-accent);
-        margin-bottom: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
         font-family: var(--font-family-heading);
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-md);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 
     .footer-links ul {
@@ -240,63 +259,38 @@ const currentYear = new Date().getFullYear();
     }
 
     .footer-links li {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--color-accent);
+    }
+
+    .contact-item {
         margin-bottom: var(--spacing-xs);
     }
 
-    .footer-bottom {
-        background-color: rgba(0, 0, 0, 0.2);
-        padding: var(--spacing-sm) 0;
-        text-align: center;
-        font-size: var(--font-size-xs);
-        color: rgba(255, 255, 255, 0.7);
+    .contact-item a {
+        color: rgba(255, 255, 255, 0.9);
+        transition: color 0.3s ease;
+    }
+    .contact-item a:hover {
+        color: var(--color-accent);
     }
 
-    .developer-credit {
-        margin-top: 5px;
-        opacity: 0.8;
-    }
-
-    .developer-credit a {
-        color: inherit;
-        text-decoration: underline;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-        .footer-grid {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: var(--spacing-xl);
-        }
-
-        .newsletter-form {
-            flex-direction: column;
-        }
-
-        .newsletter-form input,
-        .newsletter-form button {
-            width: 100%;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-
+    /* Social Links */
     .social-links {
         display: flex;
         gap: var(--spacing-md);
-        margin-top: var(--spacing-md);
     }
 
     .social-icon {
-        color: var(--color-background);
+        color: rgba(255, 255, 255, 0.8);
         transition:
             transform 0.2s ease,
             color 0.2s ease;
@@ -305,5 +299,72 @@ const currentYear = new Date().getFullYear();
     .social-icon:hover {
         color: var(--color-accent);
         transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: var(--spacing-md) 0;
+        text-align: center;
+        font-size: var(--font-size-xs);
+        color: rgba(255, 255, 255, 0.6);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .developer-credit {
+        margin-top: 8px;
+        font-size: 0.75rem;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-brand {
+            grid-column: span 2;
+            align-items: center;
+            text-align: center;
+        }
+
+        .brand-description {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: var(--spacing-xl);
+        }
+
+        .footer-brand {
+            grid-column: span 1;
+        }
+
+        .newsletter-form {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .newsletter-form input,
+        .newsletter-form button {
+            width: 100%;
+        }
+
+        .footer-links,
+        .footer-contact {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
     }
 </style>
