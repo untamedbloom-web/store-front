@@ -8,12 +8,16 @@
 
 :root {
   /* Color Palette - Untamed Blooms Inspired (Earthy, Elegant, Natural) */
-  --color-primary: #2d4a3e;
-  /* Deep forest green */
-  --color-secondary: #8b5a3e;
-  /* Earthy terra cotta/brown */
-  --color-accent: #d4a373;
-  /* Soft mute gold/beige */
+  --color-primary: #3a6832;
+  /* Primary Green */
+  --color-secondary: #703f31;
+  /* Dark Brown */
+  --color-accent: #faa84b;
+  /* Orange/Gold */
+  --color-brand-red: #dd2530;
+  /* Vibrant Red */
+  --color-brand-teal: #81c3c6;
+  /* Soft Teal */
   --color-background: #fdfcf8;
   /* Off-white, creamy paper texture */
   --color-surface: #f4f1ea;
