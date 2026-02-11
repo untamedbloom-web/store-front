@@ -1,5 +1,5 @@
 export const siteInfo = {
-    name: "Untamed Blooms Co.",
+    name: "Untamed Blooms",
     description: "Fiercely Free Floral Design",
     email: "untamedblooms@gmail.com",
     phone: "+1 (402)850-0532",
@@ -26,6 +26,6 @@ export const siteInfo = {
     },
     developer: {
         name: "LumenWorks LLC",
-        url: "https://www.lumenworks.app"
+        url: "https://lumenworks.app/"
     }
 };

@@ -1,53 +1,57 @@
-import weddingImg from '../assets/images/service-wedding.png';
+// import weddingImg from '../assets/images/service-wedding.png';
+import weddingImg from '../assets/images/WeddingsFlower.jpg';
 import alacarteImg from '../assets/images/service-alacarte.png';
 import workshopImg from '../assets/images/service-workshop.png';
 
 export const services = [
     {
-        id: 'weddings',
-        title: "Full Service Weddings",
-        shortDescription: "Full-service floral design for your special day. From bouquets to large-scale installations.",
-        description: "For the couple who wants every detail to blossom. Our full-service packages include personal consultation, mood board design, delivery, installation, and breakdown. From the bridal bouquet to the grand arbors, we ensure a cohesive and breathtaking botanical experience.",
+        id: 'curated',
+        title: "Today’s Curated Collection",
+        shortDescription: "Delivering wild, soulful florals across Colorado.",
+        description: "Delivering wild, soulful florals across Colorado, traveling near & far to wherever your story takes us. Our daily collection features unique, artist-choice arrangements.",
         features: [
-            "Personalized Design Proposal",
-            "Ceremony Installations & Arches",
-            "Table Centerpieces & Tablescapes",
-            "On-site Setup & Breakdown"
+            "Wild Mini Bundles",
+            "Signature Bouquets",
+            "Designer Vase Arrangements",
+            "Custom Color Palettes Welcome"
+        ],
+        image: alacarteImg,
+        ctaText: "Order Now",
+        ctaLink: "/contact",
+        ctaStyle: "btn-outline"
+    },
+    {
+        id: 'seasonal',
+        title: "Seasonal & Holiday",
+        shortDescription: "Subscriptions, holiday specials, and seasonal organic decor.",
+        description: "Celebrate the changing seasons with our recurring subscriptions and exclusive holiday offerings. From monthly bouquets to fresh winter wreaths, bring the outdoors in.",
+        features: [
+            "Monthly Bouquets & Arrangements",
+            "Seasonal Centerpieces",
+            "Designer Holiday Arrangements",
+            "Gathering Table Garland",
+            "Fresh Winter Wreaths"
+        ],
+        image: workshopImg,
+        ctaText: "Inquire",
+        ctaLink: "/contact",
+        ctaStyle: "btn-outline"
+    },
+    {
+        id: 'events',
+        title: "Custom Floral Design & Event Planning",
+        shortDescription: "Bespoke floral design for weddings, events, and installations.",
+        description: "For the couple who wants every detail to blossom. Includes personal consultation, mood board design, delivery, installation, and breakdown. Bespoke proposals available upon request.",
+        features: [
+            "Weddings & Elopements",
+            "Events Large or Small",
+            "Home Floral Refreshes",
+            "Corporate & Client Gifts",
+            "Installations & Consultations"
         ],
         image: weddingImg,
         ctaText: "Start Your Design",
         ctaLink: "/contact",
         ctaStyle: "btn-primary"
-    },
-    {
-        id: 'alacarte',
-        title: "A La Carte & Elopements",
-        shortDescription: "Perfect for intimate gatherings and elopements. Beautiful blooms, simplified.",
-        description: "Perfect for intimate celebrations, rehearsal dinners, or smaller budgets. Choose from our curated menu of signature color palettes and styles. Simply place your order online and pick up from our studio on your event day.",
-        features: [
-            "Bridal Bouquets & Boutonnieres",
-            "Centerpieces",
-            "No Minimum Spend",
-            "Easy Online Ordering"
-        ],
-        image: alacarteImg,
-        ctaText: "View Menu",
-        ctaLink: "/under-construction",
-        ctaStyle: "btn-outline"
-    },
-    {
-        id: 'workshops',
-        title: "Seasonal Workshops",
-        shortDescription: "Learn the art of floral design in our seasonal hands-on classes.",
-        description: "Join us in the studio to learn the art of floral design. Our workshops are designed for all skill levels and focus on sustainable mechanics and seasonal blooms. It's the perfect way to connect with nature and your creativity.",
-        features: [
-            "Spring Wreath Making",
-            "Centerpiece 101",
-            "Holiday Garlands"
-        ],
-        image: workshopImg,
-        ctaText: "See Schedule",
-        ctaLink: "/under-construction",
-        ctaStyle: "btn-outline"
     }
 ];

@@ -120,7 +120,12 @@ import { siteInfo } from "../data/site";
 
                 <!-- Contact Form -->
                 <div class="form-wrapper fade-in-up delay-200">
-                    <form class="contact-form" name="contact" method="POST">
+                    <form
+                        class="contact-form"
+                        name="contact"
+                        method="POST"
+                        data-netlify="true"
+                    >
                         <div class="form-header">
                             <h2>Send a Message</h2>
                         </div>
@@ -156,6 +161,9 @@ import { siteInfo } from "../data/site";
                                 >
                                 <option value="event">Private Event</option>
                                 <option value="workshop">Workshop</option>
+                                <option value="subscription"
+                                    >Monthly/Seasonal Subscription</option
+                                >
                                 <option value="other">Other Inquiry</option>
                             </select>
                             <label for="type">Inquiry Type</label>

@@ -7,7 +7,7 @@ export const homePage = {
     },
     intro: {
         title: "Rooted in Nature",
-        description: "At Untamed Blooms Co., we believe in the wild beauty of flowers. Our designs are organic, garden-inspired, and tailored to tell your unique story. Whether it's a wedding, elopement, or a special gift, we bring a touch of the outdoors in.",
+        description: "At Untamed Blooms, we believe in the wild beauty of flowers. Our designs are organic, garden-inspired, and tailored to tell your unique story. Whether it's a wedding, elopement, or a special gift, we bring a touch of the outdoors in.",
         linkText: "Read our story →",
         linkUrl: "/about"
     },
