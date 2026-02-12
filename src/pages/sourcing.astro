@@ -29,7 +29,7 @@ const pageDescription =
         </div>
         <div class="hero-content container fade-in-up">
             <h1>Wildly Grown</h1>
-            <p>Rooted in reverence, harvested with grace.</p>
+            <p><b>Rooted in reverence, harvested with grace.</b></p>
         </div>
     </section>
 
@@ -37,7 +37,7 @@ const pageDescription =
         <div class="container">
             <div class="two-col-grid">
                 <div class="text-content">
-                    <h2>Grown Gently, Gathered Wildly</h2>
+                    <h2>Grown Gently,<br />Gathered Wildly</h2>
                     <p>
                         We believe flowers are more than just decor—they are the
                         earth's poetry. That's why we turn to the soil beneath
@@ -198,10 +198,11 @@ const pageDescription =
     }
 
     .text-content h2 {
-        font-family: var(--font-family-heading);
-        font-size: 1.8rem;
+        font-family: var(--font-family-script);
+        font-size: 3rem;
         margin-bottom: var(--spacing-sm);
-        line-height: 2;
+        line-height: 2.25;
+        color: var(--color-primary);
     }
 
     .text-content p {
@@ -212,6 +213,8 @@ const pageDescription =
         font-family: var(--font-family-script);
         font-size: var(--font-size-3xl);
         margin-bottom: var(--spacing-lg);
+        text-align: center; /* Fixed alignment */
+        line-height: 2;
     }
 
     .practices-grid {
@@ -227,14 +230,18 @@ const pageDescription =
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-sm);
         transition: var(--transition);
+        display: flex;
+        flex-direction: column;
         height: 100%;
     }
 
     .card-img {
-        height: 200px;
         overflow: hidden;
         border-radius: var(--radius-sm);
         margin-bottom: var(--spacing-sm);
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        height: auto; /* Allow aspect ratio to control height */
     }
 
     .card-img img {
@@ -251,9 +258,14 @@ const pageDescription =
     .practice-card h3 {
         color: var(--color-primary);
         font-family: var(--font-family-script);
-        font-size: 1.75rem;
+        font-size: 1.5rem; /* Matched to Home Page */
         margin-bottom: var(--spacing-xs);
-        line-height: 2.3;
+        line-height: 2.25;
+        min-height: 4.5em; /* Ensure consistent height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -263,6 +275,10 @@ const pageDescription =
 
         .hero-content h1 {
             font-size: 2.5rem;
+        }
+
+        .text-content h2 {
+            font-size: 2rem;
         }
     }
 </style>

@@ -4,46 +4,26 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 
-// Import images for the gallery
-import img1 from "../assets/images/hero_wildflowers_moody.png";
-import img2 from "../assets/images/about_florist_hands_earthy.png";
-import img3 from "../assets/images/sourcing_flower_farm_colorado.png";
-import img4 from "../assets/images/service-wedding.png";
-import img5 from "../assets/images/service-alacarte.png";
-import img6 from "../assets/images/service-workshop.png";
-import img7 from "../assets/images/hero-bg-wildflowers.png";
-import img8 from "../assets/images/intro-wildflowers-interactive.png";
+// Import all images from the gallery folder
+const imageFiles = await Astro.glob("../assets/images/gallery/*");
 
-const galleryImages = [
-    {
-        src: img1,
-        alt: "Moody English garden vibes",
-        span: "row-span-2 col-span-2",
-    },
-    {
-        src: img4,
-        alt: "Wedding floral arrangement",
-        span: "row-span-1 col-span-1",
-    },
-    { src: img2, alt: "Florist hands working", span: "row-span-1 col-span-1" },
-    {
-        src: img3,
-        alt: "Sustainable flower farm",
-        span: "row-span-1 col-span-2",
-    },
-    { src: img5, alt: "A la carte bouquet", span: "row-span-2 col-span-1" },
-    { src: img6, alt: "Floral workshop", span: "row-span-1 col-span-1" },
-    {
-        src: img8,
-        alt: "Interactive wildflowers",
-        span: "row-span-1 col-span-1",
-    },
-    {
-        src: img7,
-        alt: "Wildflowers at golden hour",
-        span: "row-span-1 col-span-2",
-    },
-];
+const galleryImages = imageFiles.map((file, index) => {
+    // Determine span based on index/pattern to maintain grid layout
+    // This is a simple pattern to replicate the previous staggered look
+    // You might want to randomize or create a specific order based on filename
+    let span = "row-span-1 col-span-1";
+    if (index % 4 === 0)
+        span = "row-span-2 col-span-2"; // Big item
+    else if (index % 5 === 0)
+        span = "row-span-1 col-span-2"; // Wide item
+    else if (index % 7 === 0) span = "row-span-2 col-span-1"; // Tall item
+
+    return {
+        src: file.default, // Astro.glob returns module with default export as image
+        alt: "Untamed Blooms Gallery Image", // Generic alt, or could parse from filename
+        span: span,
+    };
+});
 ---
 
 <Layout title="Gallery | Untamed Blooms">

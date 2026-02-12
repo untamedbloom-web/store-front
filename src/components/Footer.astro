@@ -98,8 +98,9 @@ const currentYear = new Date().getFullYear();
                 <ul>
                     <li><a href="/about">Our Story</a></li>
                     <li><a href="/gallery">Portfolio</a></li>
-                    <li><a href="/sourcing">Sourcing</a></li>
                     <li><a href="/services">Services</a></li>
+                    <li><a href="/sourcing">Sourcing</a></li>
+                    <li><a href="/blog">Journal</a></li>
                 </ul>
             </div>
 
@@ -165,25 +166,31 @@ const currentYear = new Date().getFullYear();
     .newsletter-section h4 {
         color: var(--color-accent);
         font-family: var(--font-family-heading);
-        font-size: var(--font-size-2xl);
+        font-size: 2rem; /* Increased size */
         margin-bottom: var(--spacing-xs);
+    }
+
+    .newsletter-section p {
+        font-size: 1.25rem; /* Increased description size */
+        margin-bottom: 0;
     }
 
     .newsletter-form {
         display: flex;
         gap: var(--spacing-xs);
         margin-top: var(--spacing-md);
-        max-width: 400px;
+        max-width: 500px; /* Slightly wider */
         margin-left: auto;
         margin-right: auto;
     }
 
     .newsletter-form input {
         flex: 1;
-        padding: 12px 16px;
+        padding: 16px 20px; /* Larger padding */
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: var(--radius-sm);
         font-family: var(--font-family-body);
+        font-size: 1.1rem; /* Larger input font */
         background-color: transparent;
         color: white;
     }
@@ -195,8 +202,9 @@ const currentYear = new Date().getFullYear();
     .newsletter-form button {
         background-color: var(--color-accent);
         color: var(--color-primary);
-        padding: 12px 24px;
+        padding: 16px 32px; /* Larger padding */
         font-weight: 600;
+        font-size: 1.1rem; /* Larger button text */
         border-radius: var(--radius-sm);
         transition: var(--transition);
         white-space: nowrap;
@@ -336,6 +344,15 @@ const currentYear = new Date().getFullYear();
             text-align: center;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .site-footer {
+            font-size: 1.1rem; /* Increase font size for mobile/tablet */
+        }
+
+        .footer-links a,
+        .contact-item a {
+            font-size: 1.1rem;
         }
     }
 

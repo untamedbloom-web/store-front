@@ -33,16 +33,18 @@
   --font-family-heading: 'Cormorant Garamond',
     serif;
   /* Elegant serif for headings */
-  --font-family-body: 'Inter',
+  /* --font-family-body: 'Inter',
     system-ui,
-    sans-serif;
+    sans-serif; */
+  --font-family-body: 'Cormorant Garamond',
+    serif;
   /* Clean sans for readability */
   --font-family-subtitle: 'Montserrat', sans-serif;
   --font-family-script: 'Le Jour Script', cursive;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
+  --font-size-base: 1.12rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
@@ -154,10 +156,29 @@ a {
   transition: var(--transition);
 }
 
-button {
+button,
+.btn,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
   cursor: pointer;
   border: none;
-  font-family: inherit;
+  font-family: var(--font-family-heading);
+  /* Cormorant Garamond */
+}
+
+@media (max-width: 768px) {
+
+  button,
+  .btn,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"] {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    min-height: 50px;
+    /* Ensure consistent tap target size and visual height */
+  }
 }
 
 /* Utilities */

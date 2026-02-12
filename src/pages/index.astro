@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 import heroBgMoody from "../assets/images/hero_wildflowers_moody.png";
 import introFloristHands from "../assets/images/about_florist_hands_earthy.png";
 import logo from "../assets/images/logo.svg";
-import { services } from "../data/services";
+import { shortServices } from "../data/services";
 import { homePage } from "../data/home";
 ---
 
@@ -59,19 +59,19 @@ import { homePage } from "../data/home";
 
 			<div class="services-grid">
 				{
-					services.map((service, index) => (
+					shortServices.map((shortService, index) => (
 						<a
 							href="/services"
 							class={`service-card fade-in-up delay-${(index + 1) * 100}`}
 						>
 							<div class="card-img-wrapper hover-scale">
 								<Image
-									src={service.image}
-									alt={service.title}
+									src={shortServices[index].image}
+									alt={shortServices[index].title}
 								/>
 							</div>
-							<h3>{service.title}</h3>
-							<p>{service.shortDescription}</p>
+							<h3>{shortServices[index].title}</h3>
+							<p>{shortServices[index].shortDescription}</p>
 						</a>
 					))
 				}
@@ -184,7 +184,7 @@ import { homePage } from "../data/home";
 
 	.intro-text h2 {
 		font-family: var(--font-family-script); /* Changed to Le Jour Script */
-		font-size: 4rem; /* Increased size for script font */
+		font-size: 3rem; /* Increased size for script font */
 		margin-bottom: var(--spacing-sm);
 		color: var(--color-primary);
 		line-height: 1.8;
@@ -262,7 +262,9 @@ import { homePage } from "../data/home";
 		text-align: center;
 		box-shadow: var(--shadow-sm);
 		transition: var(--transition);
-		display: block; /* Make anchor block */
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 		border-radius: var(--radius-md);
 	}
 
@@ -275,10 +277,15 @@ import { homePage } from "../data/home";
 		overflow: hidden;
 		margin-bottom: var(--spacing-sm);
 		border-radius: var(--radius-sm);
+		aspect-ratio: 1 / 1;
+		width: 100%;
 	}
 
 	.card-img-wrapper img {
 		transition: transform 0.5s ease;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.service-card:hover .card-img-wrapper img {
@@ -286,13 +293,20 @@ import { homePage } from "../data/home";
 	}
 
 	.service-card h3 {
-		font-size: var(--font-size-xl);
+		font-family: var(--font-family-script);
+		font-size: 1.25rem;
 		margin-bottom: var(--spacing-xs);
 		color: var(--color-primary);
+		line-height: 2.25;
+		min-height: 4.5em; /* Ensure consistent height for 2 lines of text */
+		display: flex;
+		align-items: center; /* Center vertically if 1 line */
+		justify-content: center;
 	}
 
 	.service-card p {
 		color: var(--color-text-main);
+		flex-grow: 1; /* Push content allows for alignment if button existed, but mostly just fills space */
 	}
 
 	/* Responsive */
