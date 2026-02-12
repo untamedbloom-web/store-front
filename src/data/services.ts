@@ -1,12 +1,14 @@
 // import weddingImg from '../assets/images/service-wedding.png';
 import weddingImg from '../assets/images/WeddingsFlower.jpg';
 import alacarteImg from '../assets/images/service-alacarte.png';
-import workshopImg from '../assets/images/service-workshop.png';
+// import workshopImg from '../assets/images/service-workshop.png';
+import seasonalWreathImg from '../assets/images/service-seasonal-wreath.png';
+import customAisleImg from '../assets/images/service-custom-aisle.png';
 
 export const services = [
     {
         id: 'curated',
-        title: "Today’s Curated Collection",
+        title: "Curated Collection",
         shortDescription: "Delivering wild, soulful florals across Colorado.",
         description: "Delivering wild, soulful florals across Colorado, traveling near & far to wherever your story takes us. Our daily collection features unique, artist-choice arrangements.",
         features: [
@@ -32,7 +34,7 @@ export const services = [
             "Gathering Table Garland",
             "Fresh Winter Wreaths"
         ],
-        image: workshopImg,
+        image: seasonalWreathImg,
         ctaText: "Inquire",
         ctaLink: "/contact",
         ctaStyle: "btn-outline"
@@ -49,7 +51,7 @@ export const services = [
             "Corporate & Client Gifts",
             "Installations & Consultations"
         ],
-        image: weddingImg,
+        image: customAisleImg,
         ctaText: "Start Your Design",
         ctaLink: "/contact",
         ctaStyle: "btn-primary"
@@ -60,7 +62,7 @@ export const services = [
 export const shortServices = [
     {
         id: 'curated',
-        title: "Today’s Curated Collection",
+        title: "Curated Collection",
         shortDescription: "Delivering wild, soulful florals across Colorado.",
         description: "Delivering wild, soulful florals across Colorado, traveling near & far to wherever your story takes us. Our daily collection features unique, artist-choice arrangements.",
         features: [
@@ -86,7 +88,7 @@ export const shortServices = [
             "Gathering Table Garland",
             "Fresh Winter Wreaths"
         ],
-        image: workshopImg,
+        image: seasonalWreathImg,
         ctaText: "Inquire",
         ctaLink: "/contact",
         ctaStyle: "btn-outline"
@@ -103,7 +105,7 @@ export const shortServices = [
             "Corporate & Client Gifts",
             "Installations & Consultations"
         ],
-        image: weddingImg,
+        image: customAisleImg,
         ctaText: "Start Your Design",
         ctaLink: "/contact",
         ctaStyle: "btn-primary"

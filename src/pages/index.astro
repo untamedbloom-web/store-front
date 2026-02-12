@@ -41,7 +41,7 @@ import { homePage } from "../data/home";
 				/>
 			</div>
 			<div class="intro-text fade-in-up delay-100">
-				<h2>{homePage.intro.title}</h2>
+				<h2>Rooted <span class="smaller-script">in</span> Nature</h2>
 				<p>{homePage.intro.description}</p>
 				<a href={homePage.intro.linkUrl} class="text-link"
 					>{homePage.intro.linkText}</a
@@ -184,10 +184,15 @@ import { homePage } from "../data/home";
 
 	.intro-text h2 {
 		font-family: var(--font-family-script); /* Changed to Le Jour Script */
-		font-size: 3rem; /* Increased size for script font */
+		font-size: 2.5rem; /* Increased size for script font */
 		margin-bottom: var(--spacing-sm);
 		color: var(--color-primary);
 		line-height: 1.8;
+	}
+
+	.intro-text h2 .smaller-script {
+		font-size: 1.5rem;
+		/* vertical-align: middle; Optional: helps align the baseline if needed */
 	}
 
 	.organic-img {
