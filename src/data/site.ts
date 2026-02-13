@@ -1,8 +1,8 @@
 export const siteInfo = {
     name: "Untamed Blooms",
     description: "Fiercely Free Floral Design",
-    email: "untamedblooms@gmail.com",
-    phone: "+1 (402)850-0532",
+    email: "untamedbloomsco@gmail.com",
+    phone: "+1 (402) 850-0532",
     address: {
         // street: "123 Floral Lane",
         city: "Denver",

@@ -15,8 +15,12 @@ import { aboutPage } from "../data/about";
         <section class="page-header section-padding fade-in-up">
             <div class="container">
                 <h1>Our Story</h1>
-                <p class="subtitle font-heading" style="font-size: 2rem;">
-                    Cultivating beauty,<br />one stem at a time.
+
+                <p
+                    class="subtitle font-heading"
+                    style="font-size: 1.6rem; font-style: italic;"
+                >
+                    Cultivating beauty, one stem at a time.
                 </p>
             </div>
         </section>
@@ -25,17 +29,29 @@ import { aboutPage } from "../data/about";
             <div class="content-grid fade-in-up delay-100">
                 <div class="text-block">
                     <h2>{aboutPage.sectionTitle}</h2>
-                    {aboutPage.story.map((paragraph) => <p>{paragraph}</p>)}
 
-                    <div class="owner-quote">
-                        <blockquote>
-                            "{aboutPage.quote}"
-                        </blockquote>
-                        <cite>
-                            — {aboutPage.owner}
-                            <!-- <span class="owner-label">(Founder)</span> -->
-                        </cite>
-                    </div>
+                    {
+                        aboutPage.story.map((paragraph) => (
+                            <p style="font-size: 1.2rem; line-height: 1.6;">
+                                {paragraph}
+                            </p>
+                        ))
+                    }
+
+                    <cite>
+                        — {aboutPage.owner}
+
+                        <style>
+                            cite {
+                                font-family: "Le Jour", serif;
+                                color: #b22222;
+                                font-style: normal;
+                                font-size: 2rem;
+                                display: block;
+                                margin-top: 1.6rem;
+                            }
+                        </style>
+                    </cite>
                 </div>
                 <!-- Removed boxy container, letting image breathe -->
                 <div class="image-block">

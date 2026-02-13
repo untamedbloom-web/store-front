@@ -5,7 +5,7 @@ export const teamMembers = [
     {
         id: 'jane-doe',
         name: "Rachel Machmuller-Sebastian ",
-        role: "Lead Designer & Founder",
+        role: "Founder & Lead Designer",
         image: team1,
         bio: "With a background in fine arts and a passion for gardening, Jane founded Untamed Blooms to bring a looser, more organic style to the local wedding scene."
     },
