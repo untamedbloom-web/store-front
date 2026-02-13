@@ -1,7 +1,7 @@
 ---
 import { siteInfo } from "../data/site";
 import { Image } from "astro:assets";
-import logo from "../assets/images/logo.svg";
+import logo from "../assets/UntamedBlooms_FooterLogo.svg";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -28,8 +28,8 @@ const currentYear = new Date().getFullYear();
             <!-- Column 1: Brand -->
             <div class="footer-brand">
                 <a href="/" class="footer-logo">
-                    <Image
-                        src={logo}
+                    <img
+                        src={logo.src}
                         alt={siteInfo.name}
                         class="footer-logo-img"
                     />
@@ -240,7 +240,7 @@ const currentYear = new Date().getFullYear();
     .footer-logo-img {
         height: 5rem;
         width: auto;
-        filter: brightness(0) invert(1);
+        /* No filter needed — SVG has correct colors for dark bg */
     }
 
     .brand-description {
