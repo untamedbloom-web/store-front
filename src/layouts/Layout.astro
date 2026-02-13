@@ -1,15 +1,26 @@
 ---
 import "../styles/global.css";
+import { siteInfo } from "../data/site";
 
 interface Props {
 	title: string;
 	description?: string;
+	image?: string;
+	canonicalUrl?: string;
 }
+
+const siteUrl = "https://untamedbloomsco.com";
 
 const {
 	title,
-	description = "Untamed Blooms Co. - Wildly Beautiful Floral Design",
+	description = siteInfo.meta.defaultDescription,
+	image = "/favicon.png",
+	canonicalUrl,
 } = Astro.props;
+
+const fullTitle = `${title} | Untamed Blooms Co.`;
+const ogImage = image.startsWith("http") ? image : `${siteUrl}${image}`;
+const canonical = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
 ---
 
 <!doctype html>
@@ -19,7 +30,32 @@ const {
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href={canonical} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content="Untamed Blooms Co." />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={fullTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<!-- Additional SEO -->
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Untamed Blooms Co." />
+		<meta name="geo.region" content="US-CO" />
+		<meta name="geo.placename" content="Denver" />
 
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +65,44 @@ const {
 			rel="stylesheet"
 		/>
 
-		<title>{title} | Untamed Blooms Co.</title>
+		<title>{fullTitle}</title>
+
+		<!-- Structured Data: LocalBusiness -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Florist",
+				name: "Untamed Blooms Co.",
+				description: siteInfo.meta.defaultDescription,
+				url: siteUrl,
+				telephone: siteInfo.phone,
+				email: siteInfo.email,
+				address: {
+					"@type": "PostalAddress",
+					addressLocality: siteInfo.address.city,
+					addressRegion: siteInfo.address.state,
+					addressCountry: "US",
+				},
+				sameAs: [siteInfo.social.instagram],
+				openingHoursSpecification: [
+					{
+						"@type": "OpeningHoursSpecification",
+						dayOfWeek: [
+							"Monday",
+							"Tuesday",
+							"Wednesday",
+							"Thursday",
+							"Friday",
+						],
+						opens: "09:00",
+						closes: "17:00",
+					},
+				],
+				image: `${siteUrl}/favicon.png`,
+				priceRange: "$$",
+			})}
+		/>
 	</head>
 	<body>
 		<!-- Header will go here -->

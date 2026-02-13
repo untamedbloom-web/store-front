@@ -1,0 +1,11 @@
+# Robots.txt for Untamed Blooms Co.
+# https://untamedbloomsco.com
+
+User-agent: *
+Allow: /
+
+# Disallow API routes
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://untamedbloomsco.com/sitemap-index.xml
